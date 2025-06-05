@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional English Speaking Lab</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #fff);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header, section {
+      padding: 20px;
+      margin: 20px;
+      background-color: #ffffffcc;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+    header:hover, section:hover {
+      transform: scale(1.02);
+    }
+    h1, h2 {
+      color: #0d47a1;
+    }
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 250px;
+      margin: 5px 0;
+    }
+    button {
+      background-color: #0d47a1;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #1565c0;
+    }
+    .score-board {
+      background: #e8f0fe;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .score-board #totalScore {
+      font-size: 24px;
+      font-weight: bold;
+      color: #d32f2f;
+      animation: pulse 1s ease-in-out infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+    .question-block {
+      margin-top: 10px;
+    }
+    select {
+      padding: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .feedback {
+      margin-top: 5px;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+    .wrong {
+      color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <header id="topSection">
+    <h1>English Speaking Test 2</h1>
+    <h2>Prepared by Lecturer: Daravuth.Y</h2>
+    <div class="score-board">
+      <p><strong>Student Name:</strong> <input type="text" id="studentName" /></p>
+      <p><strong>Student ID:</strong> <input type="text" id="studentId" /></p>
+      <p><strong>Total Score:</strong> <span id="totalScore">0</span> / 12</p>
+    </div>
+    <button onclick="calculateScore()">Finish & Submit</button>
+  </header>
+
+  <section>
+    <h2>1. Match the Word to the Consonant Sound (2 points)</h2>
+    <div class="question-block">
+      <p>Which word contains the /ʃ/ sound?</p>
+      <select id="q1">
+        <option value="">--Choose--</option>
+        <option value="0">Present</option>
+        <option value="1">Pressure</option>
+        <option value="0">Leader</option>
+      </select>
+      <div class="feedback" id="f1"></div>
+    </div>
+    <div class="question-block">
+      <p>Which word contains the /tʃ/ sound?</p>
+      <select id="q2">
+        <option value="">--Choose--</option>
+        <option value="1">Chair</option>
+        <option value="0">Fair</option>
+        <option value="0">Call</option>
+      </select>
+      <div class="feedback" id="f2"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Appropriate Workplace Replies (2 points)</h2>
+    <div class="question-block">
+      <p>"I'm sorry I'm late." →</p>
+      <select id="q3">
+        <option value="">--Choose--</option>
+        <option value="1">No problem, please come in.</option>
+        <option value="0">That’s unacceptable.</option>
+      </select>
+      <div class="feedback" id="f3"></div>
+    </div>
+    <div class="question-block">
+      <p>"Can I see the report?" →</p>
+      <select id="q4">
+        <option value="">--Choose--</option>
+        <option value="0">Maybe later.</option>
+        <option value="1">Sure, here it is.</option>
+      </select>
+      <div class="feedback" id="f4"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Consonant Sound Sorting (2 points)</h2>
+    <div class="question-block">
+      <p>Which word starts with /b/?</p>
+      <select id="q5">
+        <option value="">--Choose--</option>
+        <option value="1">Bill</option>
+        <option value="0">Voice</option>
+        <option value="0">Table</option>
+      </select>
+      <div class="feedback" id="f5"></div>
+    </div>
+    <div class="question-block">
+      <p>Which word starts with /v/?</p>
+      <select id="q6">
+        <option value="">--Choose--</option>
+        <option value="0">Ball</option>
+        <option value="1">Vote</option>
+        <option value="0">Tell</option>
+      </select>
+      <div class="feedback" id="f6"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Build the Sentence (2 points)</h2>
+    <div class="question-block">
+      <p>Choose the most polite way to ask for help:</p>
+      <select id="q7">
+        <option value="">--Choose--</option>
+        <option value="1">Could you help me, please?</option>
+        <option value="0">Do it for me.</option>
+      </select>
+      <div class="feedback" id="f7"></div>
+    </div>
+    <div class="question-block">
+      <p>Best way to request a meeting:</p>
+      <select id="q8">
+        <option value="">--Choose--</option>
+        <option value="1">Would you be available for a meeting?</option>
+        <option value="0">Come to my office now.</option>
+      </select>
+      <div class="feedback" id="f8"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Rising or Falling Intonation? (2 points)</h2>
+    <div class="question-block">
+      <p>"Can I help you?" →</p>
+      <select id="q9">
+        <option value="">--Choose--</option>
+        <option value="1">Rising</option>
+        <option value="0">Falling</option>
+      </select>
+      <div class="feedback" id="f9"></div>
+    </div>
+    <div class="question-block">
+      <p>"We submitted the report." →</p>
+      <select id="q10">
+        <option value="">--Choose--</option>
+        <option value="0">Rising</option>
+        <option value="1">Falling</option>
+      </select>
+      <div class="feedback" id="f10"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>6. Complete the Dialogue (2 points)</h2>
+    <div class="question-block">
+      <p>"We're behind schedule." →</p>
+      <select id="q11">
+        <option value="">--Choose--</option>
+        <option value="1">That’s why we need to hurry.</option>
+        <option value="0">It doesn’t matter.</option>
+      </select>
+      <div class="feedback" id="f11"></div>
+    </div>
+    <div class="question-block">
+      <p>"Do you have the files?" →</p>
+      <select id="q12">
+        <option value="">--Choose--</option>
+        <option value="1">Yes, I’ll send them now.</option>
+        <option value="0">No, and I won’t.</option>
+      </select>
+      <div class="feedback" id="f12"></div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    function calculateScore() {
+      let score = 0;
+      for (let i = 1; i <= 12; i++) {
+        const select = document.getElementById("q" + i);
+        const feedback = document.getElementById("f" + i);
+        const selected = select.options[select.selectedIndex];
+        const correct = [...select.options].find(o => o.value === "1").text;
+
+        if (select.value === "1") {
+          score++;
+          feedback.innerHTML = `✅ Correct!`;
+          feedback.classList.remove("wrong");
+        } else {
+          feedback.innerHTML = `❌ Incorrect. Correct answer: <em>${correct}</em>`;
+          feedback.classList.add("wrong");
+        }
+      }
+
+      const scoreEl = document.getElementById("totalScore");
+      scoreEl.textContent = score;
+      scoreEl.style.color = score >= 8 ? '#2e7d32' : '#d32f2f';
+
+      alert("Thank you! Your total score is: " + score + " / 12");
+
+      // Snapshot top section
+      const name = document.getElementById("studentName").value.trim().replace(/\s+/g, '');
+      const id = document.getElementById("studentId").value.trim().replace(/\s+/g, '');
+      const filename = (name && id) ? `${name}_${id}_score.jpg` : `student_score.jpg`;
+
+      html2canvas(document.getElementById("topSection")).then(canvas => {
+        const link = document.createElement("a");
+        link.download = filename;
+        link.href = canvas.toDataURL("image/jpeg", 0.9);
+        link.click();
+      });
+    }
+  </script>
+</body>
+</html>
